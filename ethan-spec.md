@@ -1,6 +1,6 @@
 ### dprint heading attributes
 
-**General Syntax & Grammer:
+**General Syntax & Grammer:**
 
 * dprint heading attributes look like this ###Heading{#custom-ID}, everything inside the curly brackets includes the attributes for dprint
 
@@ -17,42 +17,45 @@
   - {#ID1.class1, #ID2.class2, ..., #IDN.classN} (this means heading can have multiple attributes)
   - {key=value}
   - {}
+  - malformed headings
 
-**Formatting & Whitespace Rules:
+* Unsupported:
+  - empty values
+  - duplicated classes or IDs
+  - trailing commas
+  - malformed attribute blocks
+
+**Formatting & Whitespace Rules:**
 
 * **Tag Placement:** The attribute block must be placed directly at the end of the heading statement without any spaces before the opening `{`.
 
 **No Trailing Whitespace:** Exclude any whitespace immediately preceding or at the end of the closing curly bracket `}`.
 
-**No leading Whitespace:** When heading call is made, remove any trailing whitespace from the heading markers. Each heading marker requires three `#` characters, so if there is a whitespace after the third one followed by the heading name, remove the whitespace while preserving the heading title.
-
 **Newline Handling:** When a newline occurs within or immediately before the attribute block, the attribute block is merged onto the same line as heading title.
 
 **attribute format:** include at least 1 space after each attribute by default to avoid the heading from looking cluttered.
 
-**Heading Format:* Both `###Heading` and `### Heading` are valid inputs, just be sure in the latter case, you remove any leading whitespace that is before the Heading title
+**Heading Format:** Both `###Heading` and `### Heading` are valid inputs, just be sure in the latter case, you remove any leading whitespace that is before the Heading title.
+When heading call is made, remove any trailing whitespace from the heading markers. Each heading marker requires three `#` characters, so if there is a whitespace after the third one followed by the heading name, remove the whitespace while preserving the heading title.
 
 ### Test Cases & Examples
 
-** 1. Standard Heading with Attribute**
+```markdown
+
+**1. Standard Heading with Attribute**
 
 * **Input:** `### My Heading{#my-ID}`
 * **Expected Output** `###My Heading{#my-ID}`
 
 **2. Malformed Attribute Spacing**
 
-* **Input** `### My Heading {my-ID}`
+* **Input** `### My Heading {#my-ID}`
 * **Expected Output:** `###My Heading{#my-ID}`
 
 **3. Multiline / Newline Handling**
 
-* **Input**
-
-```markdown
-
-### My Heading
-
-{#my-ID}
+* **Input** `### My Heading`
+`{#my-ID}`
 
 * **Expected Output** `###My Heading{#my-ID}`
  
