@@ -159,7 +159,7 @@ Title   {#id}
 
 # Title {x=<b  c> .c}
 
-!! should not recognize a block whose brace is within a link or emphasis !!
+!! should reject a brace within a link but shield attribute emphasis delimiters !!
 # Title [a {b](u) c}
 
 # *a {*}
@@ -167,7 +167,7 @@ Title   {#id}
 [expect]
 # Title [a {b](u) c}
 
-# _a {_}
+# *a {*}
 
 !! should not escape hashes before the block of a setext heading written as atx !!
 Title  ##   {#id}
@@ -228,7 +228,7 @@ beta {#id}
 [expect]
 # Title {#a .b #a k=v .b}
 
-!! should not recognize a block whose brace is within inline html or strikethrough !!
+!! should reject a brace within inline html but shield attribute strikethrough delimiters !!
 # a <b c=" {x   y=">"}
 
 # a ~~b {x="1  2" y=~~}
@@ -236,4 +236,4 @@ beta {#id}
 [expect]
 # a <b c=" {x   y=">"}
 
-# a ~~b {x="1 2" y=~~}
+# a ~~b {x="1  2" y=~~}
