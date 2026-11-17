@@ -6,7 +6,7 @@ Team: Aibar, Assem, Ethan and Nurislam. The specification is [heading-attributes
 
 - **Aibar** wrote the most complete first draft setting the recognition, output, and edge-case rules, and contributed to the final review and verification of the pull request.
 - **Assem** wrote the draft defining the `attr_list` syntax and line-wrapping behavior, revised `heading-attributes-spec.md` to address instructor feedback (referencing `Options::ENABLE_HEADING_ATTRIBUTES`, raw block parsing before inline parsing, CRLF normalization, and escaped braces), and ran the final specification review rounds.
-- **Ethan** wrote the draft covering multi-line and no-space CommonMark heading edge cases, and contributed to the final review and test verification of the pull request.
+- **Ethan** wrote the draft whose multi-line and no-space CommonMark heading cases became the specification's examples of lines that don't read as one heading, and checked that the final branch builds and passes its tests. Adjusted formatting rules and test assertions to avoid the integration features clashing with the dprint parser plugin architecture.
 - **Nurislam** merged the three drafts into one specification, implemented the feature and test suite in `src/` and `tests/`, and ran the implementation review rounds.
 
 ## Verifying that the project compiles and runs
